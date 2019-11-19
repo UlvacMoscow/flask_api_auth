@@ -1,7 +1,9 @@
 # Environments
-.env
-.venv
+env
+venv
 
 # Flask stuff:
 instance/
 .webassets-cache
+
+__pycache__
