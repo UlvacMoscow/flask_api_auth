@@ -1,2 +1,23 @@
-download openserver, and create db mysql. For help watch youtube where 
-more guids, search wordpress 
+Интерфейс "авторизации"
+
+ • html-форма (можно использовать любой html/css фреймворк);
+ • страница ошибки / успешной авторизации;
+ • данные о пользователях лежат в бд;
+ • сессия сохраняется в куках / бд;
+
+API:
+
+ • работает только с авторизованными пользователями;
+ • реализовано по принципу REST;
+ • CRUD методы работы с данными в формате JSON (c валидацией, до взаимодействия);
+
+Технические требования к приложению:
+
+ • написано на любом из языков программирования (python, nodejs, php, ...);
+ • размещено в docker-контейнере и поднимается с помощью docker-compose;
+ • работает через nginx;
+ • содержит инструкцию по запуску;
+
+
+download openserver, and create db mysql. For help watch youtube where
+more guids, search wordpress
