@@ -1,8 +1,17 @@
-from flask import Flask
+from flask import Flask, jsonify
 from config import Configuration
 
 
+
 app = Flask(__name__)
+
+users = [
+    {
+        'login' : 'Ben',
+        'active' : True,
+        'last coming': '20-11-2019',
+    }
+]
 
 
 #POST /auth data: {login , password}
@@ -19,4 +28,4 @@ def get_user():
 # GET /auth
 @app.route('/auth')
 def get_users():
-    pass
+    return jsonify({'users' : users})
