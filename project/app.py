@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from config import Configuration
 from flask_restful import Resource, Api
 
@@ -23,8 +23,13 @@ class User(Resource):
         users.append(user)
         return user, 201
 
-api.add_resource(User, '/user/<string:name>')
 
+class UserList(Resource):
+    def get(self):
+        return {'users': users}
+
+api.add_resource(User, '/user/<string:name>')
+api.add_resource(UserList, '/users')
 
 
 # users = [
