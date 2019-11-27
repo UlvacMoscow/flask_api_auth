@@ -13,13 +13,16 @@ users = []
 
 class User(Resource):
     def get(self, name):
-        for user in users:
-            if user['name'] == name:
-                return user
-        return {'user': None}, 404
+        user = next(filter(lambda x: x['name'] == name, users), None)
+        return {'user': user}, 200 if user else 404
 
     def post(self, name):
-        user = {'name': name, 'age': 18 }
+        if next(filter(lambda x: x['name'] == name, users), None): # is not None
+            return {'message' : 'user with so name {} already registred'.format(name)}, 400
+
+
+        data = request.get_json()
+        user = {'name': name, 'age': data['age']}
         users.append(user)
         return user, 201
 
