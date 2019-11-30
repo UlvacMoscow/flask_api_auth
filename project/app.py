@@ -36,14 +36,15 @@ class User(Resource):
         return {'message' : 'item deleted'}
 
     def put(self, name):
+        # global users
         data = request.get_json()
-        users = next(filter(lambda x: x['name'] != name, users), None)
+        user = next(filter(lambda x: x['name'] != name, users), None)
         if user is None:
             user = {'name': name, 'price': data['price']}
             users.append(user)
         else:
-            item.update(data)
-        return item
+            user.update(data)
+        return user
 
 
 
