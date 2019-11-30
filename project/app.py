@@ -25,8 +25,6 @@ class User(Resource):
     def post(self, name):
         if next(filter(lambda x: x['name'] == name, users), None): # is not None
             return {'message' : 'user with so name {} already registred'.format(name)}, 400
-
-
         data = request.get_json()
         user = {'name': name, 'age': data['age']}
         users.append(user)
@@ -36,6 +34,18 @@ class User(Resource):
         global users
         users = list(filter(lambda x: x['name'] != name, users))
         return {'message' : 'item deleted'}
+
+    def put(self, name):
+        data = request.get_json()
+        users = next(filter(lambda x: x['name'] != name, users), None)
+        if user is None:
+            user = {'name': name, 'price': data['price']}
+            users.append(user)
+        else:
+            item.update(data)
+        return item
+
+
 
 class UserList(Resource):
     def get(self):
