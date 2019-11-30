@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
 from config import Configuration
 from flask_restful import Resource, Api
+from flask_jwt import JWT, jwt_required
+
+from security import authenticate, identity
 
 
 
@@ -8,11 +11,13 @@ app = Flask(__name__)
 app.secret_key = 'sen'
 api = Api(app)
 
+jwt = JWT(app, authenticate, identity) #/auth
 
 users = []
 
 
 class User(Resource):
+    @jwt_required()
     def get(self, name):
         user = next(filter(lambda x: x['name'] == name, users), None)
         return {'user': user}, 200 if user else 404
