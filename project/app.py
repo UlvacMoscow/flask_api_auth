@@ -32,6 +32,10 @@ class User(Resource):
         users.append(user)
         return user, 201
 
+    def delete(self, name):
+        global users
+        users = list(filter(lambda x: x['name'] != name, users))
+        return {'message' : 'item deleted'}
 
 class UserList(Resource):
     def get(self):
