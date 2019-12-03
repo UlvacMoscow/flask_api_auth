@@ -17,12 +17,13 @@ users = []
 
 
 class User(Resource):
-    @jwt_required()
+    # @jwt_required()
     def get(self, name):
         user = next(filter(lambda x: x['name'] == name, users), None)
         return {'user': user}, 200 if user else 404
 
     def post(self, name):
+        print('*****************callll**********************')
         if next(filter(lambda x: x['name'] == name, users), None): # is not None
             return {'message' : 'user with so name {} already registred'.format(name)}, 400
         data = request.get_json()

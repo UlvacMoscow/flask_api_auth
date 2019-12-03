@@ -23,7 +23,7 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" :onclick="postUser()">Submit</button>
     </form>
 </div>
 
@@ -48,6 +48,23 @@ var myApp = new Vue({
     },
     mounted() {
         console.log('hello');
-    }
+    },
+    methods: {
+        postUser() {
+            var headers = {'Content-type':'application/json','Accept':'application/json'};
+            var data = {'phone':'this.phone'}
+              axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:5000/users',
+                  data: JSON.stringify({'name':'vasja', 'age': 18}),
+                  headers: headers,
+              })
+              .then((response)=>{
+                      console.log('111111111111111',response.data);
+
+                  })
+
+        }
+    },
 })
 </script>
