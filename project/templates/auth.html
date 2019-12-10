@@ -13,15 +13,14 @@
 <body class="text-center">
 
 <div id="myApp" class="row center">
-    <form style="margin:0 auto; width: 300px; margin-top: 150px; border:solid 1px black; border-radius:5px;">
+    <form>
         <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="exampleInputEmail">Username</label>
+            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="exampleInputPassword">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary" :onclick="postUser()">Submit</button>
     </form>
@@ -35,6 +34,7 @@
 <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="{{ url_for ('static', filename='css/auth.css') }}">
 </body>
 </html>
 

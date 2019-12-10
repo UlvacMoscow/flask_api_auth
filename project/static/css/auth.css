@@ -1,0 +1,8 @@
+div form {
+    margin:0 auto;
+    width: 300px;
+    margin-top: 150px;
+    border:solid 1px black;
+    border-radius:5px;
+    padding:10px;
+}
