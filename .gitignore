@@ -7,3 +7,4 @@ instance/
 .webassets-cache
 
 __pycache__
+data.db
