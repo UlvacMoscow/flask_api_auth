@@ -1,5 +1,5 @@
 from flask_secutiry import UserMixin
-
+import sqlite3
 
 
 class User(db.Model, UserMixin):
@@ -8,3 +8,5 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(255))
     age = db.Column(db.Integer())
+
+    def find_by_username(self, )
